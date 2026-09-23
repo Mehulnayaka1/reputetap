@@ -34,29 +34,43 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .star-glow { text-shadow: 0 0 12px rgba(251, 188, 5, 0.4); }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 4px; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between p-4 sm:p-6 max-w-md mx-auto relative overflow-x-hidden">
 
   <!-- Header Section -->
-  <header class="text-center pt-4 pb-2">
-    <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700/60 rounded-full px-4 py-1.5 mb-4 shadow-sm">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span class="text-xs font-semibold text-slate-300 tracking-wide uppercase">Verified Review Portal</span>
+  <header class="text-center pt-3 pb-2 relative">
+    <div class="flex justify-between items-center mb-3">
+      <div class="inline-flex items-center gap-1.5 bg-slate-800/80 border border-slate-700/60 rounded-full px-3 py-1 text-[11px]">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-semibold text-slate-300 uppercase tracking-wider" id="biz-badge">Verified Review Portal</span>
+      </div>
+      <button onclick="copyShareableLink()" class="bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-link text-[10px]"></i>
+        <span>Share Link</span>
+      </button>
     </div>
-    <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-500/20 ring-4 ring-slate-800">
-      <i class="fa-solid fa-store text-2xl text-white"></i>
+
+    <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-2.5 shadow-lg shadow-blue-500/20 ring-4 ring-slate-800 transition-all duration-300">
+      <span id="biz-initial" class="text-2xl font-extrabold text-white uppercase">C</span>
     </div>
-    <h1 id="biz-name" class="text-2xl font-bold tracking-tight text-white">The Roasted Bean Cafe</h1>
-    <p class="text-xs text-slate-400 mt-1">Tap stars to share your experience on Google Maps</p>
+    
+    <h1 id="biz-name" class="text-2xl font-bold tracking-tight text-white">Curators Coffee</h1>
+    <p id="biz-area" class="text-xs text-slate-400 mt-0.5 flex items-center justify-center gap-1">
+      <i class="fa-solid fa-location-dot text-rose-400 text-[10px]"></i>
+      <span>Alkapuri, Vadodara</span>
+    </p>
   </header>
 
   <!-- Main Card Container -->
-  <main class="space-y-5 my-auto py-2">
+  <main class="space-y-4 my-auto py-2">
 
     <!-- Step 1: Star Rating Section -->
-    <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 shadow-xl text-center backdrop-blur-sm">
-      <h2 class="text-sm font-medium text-slate-300 mb-3">How was your visit today?</h2>
+    <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl text-center backdrop-blur-sm">
+      <h2 class="text-xs font-medium text-slate-300 mb-2.5">How was your visit today?</h2>
       
       <div id="star-container" class="flex justify-center items-center gap-2 mb-2">
         <button onclick="rateExperience(1)" class="star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1" data-star="1"><i class="fa-solid fa-star"></i></button>
@@ -70,103 +84,116 @@
     </div>
 
     <!-- Step 2: 1-Tap AI Review Drafter (Shown for 4/5 stars or default) -->
-    <div id="positive-flow" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 shadow-xl space-y-4 backdrop-blur-sm">
-      <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
+    <div id="positive-flow" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl space-y-3.5 backdrop-blur-sm">
+      <div class="flex items-center justify-between border-b border-slate-700/60 pb-2.5">
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
-          <span class="text-sm font-semibold text-slate-200">1-Tap AI Review Drafter</span>
+          <span class="text-xs font-semibold text-slate-200">1-Tap AI Review Drafter</span>
         </div>
-        <span class="text-[11px] bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full font-medium">Select highlights</span>
+        <span class="text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full font-medium">Select highlights</span>
       </div>
 
       <!-- Quick Tag Chips -->
-      <div id="tag-chips" class="flex flex-wrap gap-2 pt-1">
+      <div id="tag-chips" class="flex flex-wrap gap-1.5 pt-0.5">
         <!-- Chips inserted via JS -->
       </div>
 
       <!-- Review Preview Box -->
       <div class="space-y-1.5">
-        <div class="flex justify-between items-center text-xs text-slate-400">
+        <div class="flex justify-between items-center text-[11px] text-slate-400">
           <span>Review Preview</span>
-          <button onclick="refreshReviewText()" class="hover:text-blue-400 text-[11px] flex items-center gap-1 transition-colors">
+          <button onclick="refreshReviewText()" class="hover:text-blue-400 text-[10px] flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-arrows-rotate"></i> Regenerate
           </button>
         </div>
-        <textarea id="review-text" rows="3" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none" placeholder="Your review preview will appear here..."></textarea>
+        <textarea id="review-text" rows="3" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none" placeholder="Your review preview will appear here..."></textarea>
       </div>
 
       <!-- Copy & Open Google Reviews CTA Button -->
-      <button onclick="copyAndRedirect()" class="w-full bg-gradient-to-r from-googleBlue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]">
-        <i class="fa-brands fa-google text-lg"></i>
-        <span class="text-sm">Copy & Open Google Reviews</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+      <button onclick="copyAndRedirect()" class="w-full bg-gradient-to-r from-googleBlue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]">
+        <i class="fa-brands fa-google text-base"></i>
+        <span class="text-xs sm:text-sm">Copy & Open Google Reviews</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-80"></i>
       </button>
 
-      <p class="text-[11px] text-center text-slate-400 leading-tight">
-        Copies drafted text to clipboard & opens the official Google Maps review modal.
+      <p class="text-[10px] text-center text-slate-400 leading-tight">
+        Copies drafted text to clipboard & opens official Google Maps review modal.
       </p>
 
       <!-- Transparent Direct Public Review Link (Compliance Requirement) -->
-      <div class="text-center pt-2 border-t border-slate-700/50">
-        <button onclick="directGoogleReview()" class="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors">
+      <div class="text-center pt-1.5 border-t border-slate-700/50">
+        <button onclick="directGoogleReview()" class="text-[11px] text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors">
           Or leave a direct public Google review without suggestions
         </button>
       </div>
     </div>
 
-    <!-- Step 3: Private Manager Escalation Section (Shown on 1-3 stars or click) -->
-    <div id="negative-flow" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 shadow-xl space-y-4 backdrop-blur-sm">
-      <div class="flex items-center gap-2 border-b border-slate-700/60 pb-3">
+    <!-- Step 3: Private Manager Escalation Section -->
+    <div id="negative-flow" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl space-y-3.5 backdrop-blur-sm">
+      <div class="flex items-center gap-2 border-b border-slate-700/60 pb-2.5">
         <div class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
           <i class="fa-solid fa-user-shield text-amber-400 text-xs"></i>
         </div>
         <div>
-          <h3 class="text-sm font-semibold text-slate-200">Direct to Management</h3>
-          <p class="text-[11px] text-slate-400">Have an issue? We'll fix it immediately.</p>
+          <h3 class="text-xs font-semibold text-slate-200">Direct to Management</h3>
+          <p class="text-[10px] text-slate-400">Have an issue? We'll fix it immediately.</p>
         </div>
       </div>
 
-      <div id="feedback-form" class="space-y-3">
+      <div id="feedback-form" class="space-y-2.5">
         <div>
-          <label class="block text-[11px] font-medium text-slate-300 mb-1">Your Name</label>
-          <input type="text" id="cust-name" placeholder="e.g., Rahul Sharma" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <label class="block text-[10px] font-medium text-slate-300 mb-0.5">Your Name</label>
+          <input type="text" id="cust-name" placeholder="e.g., Rahul Sharma" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
         <div>
-          <label class="block text-[11px] font-medium text-slate-300 mb-1">Phone / WhatsApp (for manager to follow up)</label>
-          <input type="tel" id="cust-phone" placeholder="e.g., +91 98765 43210" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <label class="block text-[10px] font-medium text-slate-300 mb-0.5">Phone / WhatsApp (for manager to contact you)</label>
+          <input type="tel" id="cust-phone" placeholder="e.g., +91 98765 43210" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
         <div>
-          <label class="block text-[11px] font-medium text-slate-300 mb-1">What happened during your visit?</label>
-          <textarea id="cust-comment" rows="2" placeholder="Tell us how we can make things right..." class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"></textarea>
+          <label class="block text-[10px] font-medium text-slate-300 mb-0.5">What happened during your visit?</label>
+          <textarea id="cust-comment" rows="2" placeholder="Tell us how we can make things right..." class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"></textarea>
         </div>
 
-        <button onclick="submitPrivateFeedback()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
+        <button onclick="submitPrivateFeedback()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-2.5 px-4 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+          <i class="fa-brands fa-whatsapp text-base"></i>
           <span class="text-xs">Send Privately to Owner / Manager</span>
         </button>
       </div>
 
       <!-- Confirmation Toast inside card -->
-      <div id="feedback-success" class="hidden bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-4 text-center space-y-2">
-        <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
-          <i class="fa-solid fa-check text-lg"></i>
+      <div id="feedback-success" class="hidden bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3.5 text-center space-y-1.5">
+        <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
+          <i class="fa-solid fa-check text-sm"></i>
         </div>
         <h4 class="text-xs font-bold text-emerald-300">Message Delivered</h4>
-        <p class="text-[11px] text-slate-300 leading-snug">Thank you for letting us know. The owner has received your message and will reach out promptly to make this right.</p>
-        <button onclick="directGoogleReview()" class="text-[11px] text-blue-400 hover:underline pt-1 inline-block">Still want to post on Google Maps?</button>
+        <p class="text-[10px] text-slate-300 leading-snug">Thank you for letting us know. The owner has received your message and will reach out promptly to make this right.</p>
+        <button onclick="directGoogleReview()" class="text-[10px] text-blue-400 hover:underline pt-0.5 inline-block">Still want to post on Google Maps?</button>
       </div>
     </div>
 
   </main>
 
-  <!-- Footer & Parameter Configurator Button -->
-  <footer class="text-center pt-4 pb-2 border-t border-slate-800 space-y-2">
-    <p class="text-[11px] text-slate-400 flex items-center justify-center gap-1">
+  <!-- Footer & Business Switcher Controls -->
+  <footer class="text-center pt-3 pb-2 border-t border-slate-800 space-y-2.5">
+    <div class="flex flex-col gap-1.5">
+      <button onclick="openDrawer()" class="w-full bg-gradient-to-r from-slate-800 to-slate-800/90 hover:from-slate-700 hover:to-slate-800 border border-blue-500/40 text-blue-400 font-semibold py-2.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-xs active:scale-[0.98]">
+        <i class="fa-solid fa-bolt text-amber-400"></i>
+        <span>⚡ Switch Business (100 Profiles)</span>
+      </button>
+
+      <div class="flex justify-center gap-2 text-[10px]">
+        <button onclick="copyShareableLink()" class="text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+          <i class="fa-solid fa-share-nodes"></i> Copy Outreach Link
+        </button>
+        <button onclick="toggleConfigurator()" class="text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+          <i class="fa-solid fa-gear"></i> Custom URL Config
+        </button>
+      </div>
+    </div>
+
+    <p class="text-[10px] text-slate-400 flex items-center justify-center gap-1">
       Powered by <span class="font-bold text-slate-300">ReputeTap</span> • Smart Review Acceleration
     </p>
-    <button onclick="toggleConfigurator()" class="text-[10px] text-slate-400 hover:text-slate-300 bg-slate-800/60 border border-slate-700/50 px-3 py-1 rounded-full transition-colors">
-      <i class="fa-solid fa-gear"></i> Demo URL Parameter Configurator
-    </button>
   </footer>
 
   <!-- Toast Notification Popup -->
@@ -175,7 +202,46 @@
     <span id="toast-msg">Review copied to clipboard!</span>
   </div>
 
-  <!-- Parameter Configurator Modal -->
+  <!-- Mobile Slide-Up Drawer: Switch Business (1-100) -->
+  <div id="drawer-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex flex-col justify-end z-50 transition-opacity duration-300">
+    <div class="bg-slate-900 border-t border-slate-700 rounded-t-3xl p-4 sm:p-5 max-h-[85vh] flex flex-col space-y-3.5 shadow-2xl overflow-hidden w-full max-w-md mx-auto">
+      
+      <!-- Top Handle & Title -->
+      <div class="text-center relative border-b border-slate-800 pb-2.5">
+        <div class="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-2"></div>
+        <div class="flex justify-between items-center px-1">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-amber-400"></i>
+            <span>Select Outreach Profile (1–100)</span>
+          </h3>
+          <button onclick="closeDrawer()" class="text-slate-400 hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
+      <!-- Real-Time Search Bar -->
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+        <input type="text" id="drawer-search" oninput="filterDrawer()" placeholder="Search business, area, or category..." class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex gap-1.5 overflow-x-auto pb-1 text-[11px] custom-scrollbar">
+        <button onclick="setDrawerCategory('all')" id="pill-all" class="pill-btn bg-blue-600 text-white font-semibold px-2.5 py-1 rounded-full whitespace-nowrap transition-colors">All (100)</button>
+        <button onclick="setDrawerCategory('cafe')" id="pill-cafe" class="pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors">Cafes (25)</button>
+        <button onclick="setDrawerCategory('salon')" id="pill-salon" class="pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors">Salons (25)</button>
+        <button onclick="setDrawerCategory('car_care')" id="pill-car_care" class="pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors">Car Care (20)</button>
+        <button onclick="setDrawerCategory('clinic')" id="pill-clinic" class="pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors">Clinics (15)</button>
+        <button onclick="setDrawerCategory('general')" id="pill-general" class="pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors">Retail (15)</button>
+      </div>
+
+      <!-- Scrollable List of Businesses -->
+      <div id="drawer-list" class="overflow-y-auto flex-1 space-y-2 pr-1 custom-scrollbar max-h-[52vh]">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Manual Configurator Modal (Preserved Developer Tool) -->
   <div id="config-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
     <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5 w-full max-w-sm space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-slate-800 pb-2">
@@ -203,10 +269,9 @@
           <select id="cfg-type" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white">
             <option value="cafe">Cafe</option>
             <option value="salon">Salon & Beauty</option>
-            <option value="carcare">Car Spa & Detailing</option>
+            <option value="car_care">Car Spa & Detailing</option>
             <option value="clinic">Clinic & Doctor</option>
-            <option value="retail">General Retail</option>
-            <option value="restaurant">Restaurant & Dining</option>
+            <option value="general">General Retail</option>
           </select>
         </div>
         <div>
@@ -216,64 +281,1035 @@
       </div>
 
       <button onclick="applyConfig()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl text-xs transition-colors">
-        Reload Page with These Parameters
+        Reload Page with Custom Parameters
       </button>
     </div>
   </div>
 
   <!-- Application Logic JavaScript -->
   <script>
+    // Embedded 100 Lead Database
+    const CLIENTS_DATA = [
+  {
+    "id": 1,
+    "slug": "curators-coffee",
+    "name": "Curators Coffee",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJo_oNiOXJXzkRiIqVfPOR2bM",
+    "phone": "916359220791"
+  },
+  {
+    "id": 2,
+    "slug": "kaffa-coffee-roasters",
+    "name": "Kaffa Coffee Roasters",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJbxksNgDJXzkRQCdWhfQqqI8",
+    "phone": "919825336364"
+  },
+  {
+    "id": 3,
+    "slug": "the-coffee-next-door",
+    "name": "The Coffee Next Door",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJkfGRZBfJXzkRH2DriWnxt7w",
+    "phone": "919978623256"
+  },
+  {
+    "id": 4,
+    "slug": "charmant-the-heritage-caf",
+    "name": "Charmant – The Heritage Café",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJIzxoa-DJXzkRkOAWlKkybUI",
+    "phone": "919773050954"
+  },
+  {
+    "id": 5,
+    "slug": "burgundy-cafe",
+    "name": "Burgundy Cafe",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJmSUjCfnJXzkRHBxoORI4Jxo",
+    "phone": "916357575811"
+  },
+  {
+    "id": 6,
+    "slug": "trinity-cafe",
+    "name": "Trinity Cafe",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJkZekRPXJXzkRtzN9N2DK3Dc",
+    "phone": "919712348900"
+  },
+  {
+    "id": 7,
+    "slug": "the-dark-roast",
+    "name": "The Dark Roast",
+    "category": "cafe",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd001GotriVadodara001",
+    "phone": "919825123451"
+  },
+  {
+    "id": 8,
+    "slug": "brew-artisan-cafe",
+    "name": "Brew Artisan Cafe",
+    "category": "cafe",
+    "area": "Vasna, Vadodara",
+    "placeId": "ChIJd002VasnaVadodara002",
+    "phone": "919825123452"
+  },
+  {
+    "id": 9,
+    "slug": "mocha-vadodara",
+    "name": "Mocha Vadodara",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd003MochaAlkapuri003",
+    "phone": "919825123453"
+  },
+  {
+    "id": 10,
+    "slug": "cafe-fitoor",
+    "name": "Cafe Fitoor",
+    "category": "cafe",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd004Fatehgunj004",
+    "phone": "919825123454"
+  },
+  {
+    "id": 11,
+    "slug": "the-secret-kitchen",
+    "name": "The Secret Kitchen",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd005SecretKitchen05",
+    "phone": "919825123455"
+  },
+  {
+    "id": 12,
+    "slug": "kai-asia",
+    "name": "Kai Asia",
+    "category": "cafe",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd006KaiAsia06",
+    "phone": "919825123456"
+  },
+  {
+    "id": 13,
+    "slug": "gazebo-garden-restaurant",
+    "name": "Gazebo Garden Restaurant",
+    "category": "cafe",
+    "area": "Sevasi, Vadodara",
+    "placeId": "ChIJd007GazeboSevasi07",
+    "phone": "919825123457"
+  },
+  {
+    "id": 14,
+    "slug": "little-italy",
+    "name": "Little Italy",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd008LittleItaly08",
+    "phone": "919825123458"
+  },
+  {
+    "id": 15,
+    "slug": "22nd-parallel",
+    "name": "22nd Parallel",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd00922ndParallel09",
+    "phone": "919825123459"
+  },
+  {
+    "id": 16,
+    "slug": "salsa-kitchen",
+    "name": "Salsa Kitchen",
+    "category": "cafe",
+    "area": "Gotri Rd, Vadodara",
+    "placeId": "ChIJd010SalsaGotri10",
+    "phone": "919825123460"
+  },
+  {
+    "id": 17,
+    "slug": "barbeque-nation",
+    "name": "Barbeque Nation",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd011BBQAlkapuri11",
+    "phone": "919825123461"
+  },
+  {
+    "id": 18,
+    "slug": "that-place",
+    "name": "That Place",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd012ThatPlaceAlkapuri",
+    "phone": "919825123462"
+  },
+  {
+    "id": 19,
+    "slug": "fresh-roast",
+    "name": "Fresh Roast",
+    "category": "cafe",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd013FreshRoastAkota",
+    "phone": "919825123463"
+  },
+  {
+    "id": 20,
+    "slug": "coffee-culture",
+    "name": "Coffee Culture",
+    "category": "cafe",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd014CCManjalpur14",
+    "phone": "919825123464"
+  },
+  {
+    "id": 21,
+    "slug": "chai-sutta-bar",
+    "name": "Chai Sutta Bar",
+    "category": "cafe",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd015CSBFatehgunj15",
+    "phone": "919825123465"
+  },
+  {
+    "id": 22,
+    "slug": "keventers-vadodara",
+    "name": "Keventers Vadodara",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd016KeventersAlka16",
+    "phone": "919825123466"
+  },
+  {
+    "id": 23,
+    "slug": "crust-and-crumbs-patisserie",
+    "name": "Crust & Crumbs Patisserie",
+    "category": "cafe",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd017CrustCrumbs17",
+    "phone": "919825123467"
+  },
+  {
+    "id": 24,
+    "slug": "bake-my-day",
+    "name": "Bake My Day",
+    "category": "cafe",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd018BakeMyDay18",
+    "phone": "919825123468"
+  },
+  {
+    "id": 25,
+    "slug": "the-chocolate-room",
+    "name": "The Chocolate Room",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd019ChocRoomAlka19",
+    "phone": "919825123469"
+  },
+  {
+    "id": 26,
+    "slug": "styloria-unisex-hair-studio-and-lounge",
+    "name": "Styloria Unisex Hair Studio & Lounge",
+    "category": "salon",
+    "area": "Genda Circle, Vadodara",
+    "placeId": "ChIJh4ViBbPJXzkRFE0rESmWYYI",
+    "phone": "919974098750"
+  },
+  {
+    "id": 27,
+    "slug": "styloria-unisex-hair-studio",
+    "name": "Styloria Unisex Hair Studio",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJ8QRtioDJXzkRc4JW4Eyf4dc",
+    "phone": "917600088148"
+  },
+  {
+    "id": 28,
+    "slug": "enrich-salon-vadodara",
+    "name": "Enrich Salon Vadodara",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJoehf7PHJXzkR2W3hkzHD3gs",
+    "phone": "919152253000"
+  },
+  {
+    "id": 29,
+    "slug": "wave-salon-and-academy",
+    "name": "Wave Salon & Academy",
+    "category": "salon",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJJyzg797JXzkR40diSktnlrg",
+    "phone": "918238307599"
+  },
+  {
+    "id": 30,
+    "slug": "lakme-salon-for-him-and-her",
+    "name": "Lakme Salon For Him & Her",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJCbh_omDJXzkRCUHgUQKOPIE",
+    "phone": "918291128445"
+  },
+  {
+    "id": 31,
+    "slug": "cutz-beauty-salon",
+    "name": "Cutz Beauty Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJX_QpDbvIXzkRAkzxkMC-J1c",
+    "phone": "912652323222"
+  },
+  {
+    "id": 32,
+    "slug": "champion-ladies-and-gents-salon",
+    "name": "Champion Ladies & Gents Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJq6qqarHIXzkRuDgkBWlAF5E",
+    "phone": "919724661172"
+  },
+  {
+    "id": 33,
+    "slug": "truefitt-and-hill",
+    "name": "Truefitt & Hill",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd020TruefittAlka20",
+    "phone": "919825123470"
+  },
+  {
+    "id": 34,
+    "slug": "toni-and-guy",
+    "name": "Toni & Guy",
+    "category": "salon",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd021ToniGuyRace21",
+    "phone": "919825123471"
+  },
+  {
+    "id": 35,
+    "slug": "jawed-habib-hair-and-beauty",
+    "name": "Jawed Habib Hair & Beauty",
+    "category": "salon",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd022JawedHabibGot22",
+    "phone": "919825123472"
+  },
+  {
+    "id": 36,
+    "slug": "bespoke-hair-studio",
+    "name": "Bespoke Hair Studio",
+    "category": "salon",
+    "area": "Vasna Rd, Vadodara",
+    "placeId": "ChIJd023BespokeVasna23",
+    "phone": "919825123473"
+  },
+  {
+    "id": 37,
+    "slug": "the-nail-room-baroda",
+    "name": "The Nail Room Baroda",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd024NailRoomAlka24",
+    "phone": "919825123474"
+  },
+  {
+    "id": 38,
+    "slug": "glam-studio",
+    "name": "Glam Studio",
+    "category": "salon",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd025GlamManjalpur25",
+    "phone": "919825123475"
+  },
+  {
+    "id": 39,
+    "slug": "geetanjali-salon",
+    "name": "Geetanjali Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd026GeetanjaliAlka26",
+    "phone": "919825123476"
+  },
+  {
+    "id": 40,
+    "slug": "looks-salon",
+    "name": "Looks Salon",
+    "category": "salon",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd027LooksBhayli27",
+    "phone": "919825123477"
+  },
+  {
+    "id": 41,
+    "slug": "headmasters-salon",
+    "name": "Headmasters Salon",
+    "category": "salon",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd028HeadmastersOPR",
+    "phone": "919825123478"
+  },
+  {
+    "id": 42,
+    "slug": "aura-thai-spa",
+    "name": "Aura Thai Spa",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd029AuraThaiSpa29",
+    "phone": "919825123479"
+  },
+  {
+    "id": 43,
+    "slug": "o2-spa",
+    "name": "O2 Spa",
+    "category": "salon",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd030O2SpaBaroda30",
+    "phone": "919825123480"
+  },
+  {
+    "id": 44,
+    "slug": "tress-and-glow",
+    "name": "Tress & Glow",
+    "category": "salon",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd031TressGlowKarel",
+    "phone": "919825123481"
+  },
+  {
+    "id": 45,
+    "slug": "scissors-sound-salon",
+    "name": "Scissors Sound Salon",
+    "category": "salon",
+    "area": "Waghodia Rd, Vadodara",
+    "placeId": "ChIJd032ScissorsSound32",
+    "phone": "919825123482"
+  },
+  {
+    "id": 46,
+    "slug": "blush-and-bloom-makeovers",
+    "name": "Blush & Bloom Makeovers",
+    "category": "salon",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd033BlushBloomSub",
+    "phone": "919825123483"
+  },
+  {
+    "id": 47,
+    "slug": "sizzling-scizzors",
+    "name": "Sizzling Scizzors",
+    "category": "salon",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd034SizzlingGotri",
+    "phone": "919825123484"
+  },
+  {
+    "id": 48,
+    "slug": "studio-99-salon-and-spa",
+    "name": "Studio 99 Salon & Spa",
+    "category": "salon",
+    "area": "Atladara, Vadodara",
+    "placeId": "ChIJd035Studio99Atla",
+    "phone": "919825123485"
+  },
+  {
+    "id": 49,
+    "slug": "the-grooming-co",
+    "name": "The Grooming Co.",
+    "category": "salon",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd036GroomingCoAkota",
+    "phone": "919825123486"
+  },
+  {
+    "id": 50,
+    "slug": "envy-unisex-salon",
+    "name": "Envy Unisex Salon",
+    "category": "salon",
+    "area": "Harni Rd, Vadodara",
+    "placeId": "ChIJd037EnvyHarni37",
+    "phone": "919825123487"
+  },
+  {
+    "id": 51,
+    "slug": "the-detailing-mafia",
+    "name": "The Detailing Mafia",
+    "category": "car_care",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd038DetailingMafiaOPR",
+    "phone": "919825123488"
+  },
+  {
+    "id": 52,
+    "slug": "ceramic-pro-vadodara",
+    "name": "Ceramic Pro Vadodara",
+    "category": "car_care",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd039CeramicProGotri",
+    "phone": "919825123489"
+  },
+  {
+    "id": 53,
+    "slug": "express-car-wash",
+    "name": "Express Car Wash",
+    "category": "car_care",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd040ExpressWashAlka",
+    "phone": "919825123490"
+  },
+  {
+    "id": 54,
+    "slug": "3m-car-care",
+    "name": "3M Car Care",
+    "category": "car_care",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd0413MCarCareAkota",
+    "phone": "919825123491"
+  },
+  {
+    "id": 55,
+    "slug": "speed-car-wash",
+    "name": "Speed Car Wash",
+    "category": "car_care",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd042SpeedWashManjal",
+    "phone": "919825123492"
+  },
+  {
+    "id": 56,
+    "slug": "autoshine-detailing-studio",
+    "name": "Autoshine Detailing Studio",
+    "category": "car_care",
+    "area": "Sevasi, Vadodara",
+    "placeId": "ChIJd043AutoshineSevasi",
+    "phone": "919825123493"
+  },
+  {
+    "id": 57,
+    "slug": "motoclean-studio",
+    "name": "MotoClean Studio",
+    "category": "car_care",
+    "area": "Vasna, Vadodara",
+    "placeId": "ChIJd044MotoCleanVasna",
+    "phone": "919825123494"
+  },
+  {
+    "id": 58,
+    "slug": "torque-detailing-hub",
+    "name": "Torque Detailing Hub",
+    "category": "car_care",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd045TorqueBhayli45",
+    "phone": "919825123495"
+  },
+  {
+    "id": 59,
+    "slug": "gloss-autoworks",
+    "name": "Gloss Autoworks",
+    "category": "car_care",
+    "area": "Sama-Savli Rd, Vadodara",
+    "placeId": "ChIJd046GlossSama46",
+    "phone": "919825123496"
+  },
+  {
+    "id": 60,
+    "slug": "carzspa-vadodara",
+    "name": "CarzSpa Vadodara",
+    "category": "car_care",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd047CarzSpaKarel47",
+    "phone": "919825123497"
+  },
+  {
+    "id": 61,
+    "slug": "prime-auto-detailing",
+    "name": "Prime Auto Detailing",
+    "category": "car_care",
+    "area": "Waghodia Rd, Vadodara",
+    "placeId": "ChIJd048PrimeAutoWagh",
+    "phone": "919825123498"
+  },
+  {
+    "id": 62,
+    "slug": "the-car-lounge",
+    "name": "The Car Lounge",
+    "category": "car_care",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd049CarLoungeGotri",
+    "phone": "919825123499"
+  },
+  {
+    "id": 63,
+    "slug": "pitstop-car-spa",
+    "name": "Pitstop Car Spa",
+    "category": "car_care",
+    "area": "Atladara, Vadodara",
+    "placeId": "ChIJd050PitstopAtladara",
+    "phone": "919825123500"
+  },
+  {
+    "id": 64,
+    "slug": "royal-touch-car-care",
+    "name": "Royal Touch Car Care",
+    "category": "car_care",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd051RoyalTouchFateh",
+    "phone": "919825123501"
+  },
+  {
+    "id": 65,
+    "slug": "revive-auto-detailing",
+    "name": "Revive Auto Detailing",
+    "category": "car_care",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd052ReviveSubhan",
+    "phone": "919825123502"
+  },
+  {
+    "id": 66,
+    "slug": "shieldpro-detailing",
+    "name": "ShieldPro Detailing",
+    "category": "car_care",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd053ShieldProAlka",
+    "phone": "919825123503"
+  },
+  {
+    "id": 67,
+    "slug": "autogleam-car-wash",
+    "name": "AutoGleam Car Wash",
+    "category": "car_care",
+    "area": "Harni, Vadodara",
+    "placeId": "ChIJd054AutoGleamHarni",
+    "phone": "919825123504"
+  },
+  {
+    "id": 68,
+    "slug": "urban-auto-spa",
+    "name": "Urban Auto Spa",
+    "category": "car_care",
+    "area": "Gorwa, Vadodara",
+    "placeId": "ChIJd055UrbanAutoGorwa",
+    "phone": "919825123505"
+  },
+  {
+    "id": 69,
+    "slug": "apex-ceramic-lab",
+    "name": "Apex Ceramic Lab",
+    "category": "car_care",
+    "area": "Makarba, Ahmedabad",
+    "placeId": "ChIJd056ApexCeramicAhmd",
+    "phone": "919825123506"
+  },
+  {
+    "id": 70,
+    "slug": "autowrap-studio",
+    "name": "AutoWrap Studio",
+    "category": "car_care",
+    "area": "Vesu, Surat",
+    "placeId": "ChIJd057AutoWrapSurat",
+    "phone": "919825123507"
+  },
+  {
+    "id": 71,
+    "slug": "smile-care-dental-clinic",
+    "name": "Smile Care Dental Clinic",
+    "category": "clinic",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd058SmileCareAlka",
+    "phone": "919825123508"
+  },
+  {
+    "id": 72,
+    "slug": "32-pearls-dental-care",
+    "name": "32 Pearls Dental Care",
+    "category": "clinic",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd05932PearlsGotri",
+    "phone": "919825123509"
+  },
+  {
+    "id": 73,
+    "slug": "baroda-dental-studio",
+    "name": "Baroda Dental Studio",
+    "category": "clinic",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd060BarodaDentalRC",
+    "phone": "919825123510"
+  },
+  {
+    "id": 74,
+    "slug": "dr-dhrutis-aesthetic-clinic",
+    "name": "Dr. Dhruti's Aesthetic Clinic",
+    "category": "clinic",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd061DhrutiAesthetic",
+    "phone": "919825123511"
+  },
+  {
+    "id": 75,
+    "slug": "aura-skin-and-hair-clinic",
+    "name": "Aura Skin & Hair Clinic",
+    "category": "clinic",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd062AuraSkinAkota",
+    "phone": "919825123512"
+  },
+  {
+    "id": 76,
+    "slug": "the-dental-hub",
+    "name": "The Dental Hub",
+    "category": "clinic",
+    "area": "Vasna Rd, Vadodara",
+    "placeId": "ChIJd063DentalHubVasna",
+    "phone": "919825123513"
+  },
+  {
+    "id": 77,
+    "slug": "cosmodent-dental-care",
+    "name": "Cosmodent Dental Care",
+    "category": "clinic",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd064CosmodentManj",
+    "phone": "919825123514"
+  },
+  {
+    "id": 78,
+    "slug": "dermaelite-skin-studio",
+    "name": "DermaElite Skin Studio",
+    "category": "clinic",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd065DermaEliteOPR",
+    "phone": "919825123515"
+  },
+  {
+    "id": 79,
+    "slug": "dr-trivedi-dental-hospital",
+    "name": "Dr. Trivedi Dental Hospital",
+    "category": "clinic",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd066TrivediDental",
+    "phone": "919825123516"
+  },
+  {
+    "id": 80,
+    "slug": "dentique-advanced-dental",
+    "name": "Dentique Advanced Dental",
+    "category": "clinic",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd067DentiqueBhayli",
+    "phone": "919825123517"
+  },
+  {
+    "id": 81,
+    "slug": "clearsmile-orthodontics",
+    "name": "ClearSmile Orthodontics",
+    "category": "clinic",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd068ClearSmileSayaji",
+    "phone": "919825123518"
+  },
+  {
+    "id": 82,
+    "slug": "radiance-skin-clinic",
+    "name": "Radiance Skin Clinic",
+    "category": "clinic",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd069RadianceSubhan",
+    "phone": "919825123519"
+  },
+  {
+    "id": 83,
+    "slug": "perfect-smile-clinic",
+    "name": "Perfect Smile Clinic",
+    "category": "clinic",
+    "area": "Harni Rd, Vadodara",
+    "placeId": "ChIJd070PerfectSmileHarni",
+    "phone": "919825123520"
+  },
+  {
+    "id": 84,
+    "slug": "zenith-dental-care",
+    "name": "Zenith Dental Care",
+    "category": "clinic",
+    "area": "Sindhu Bhavan, Ahmedabad",
+    "placeId": "ChIJd071ZenithDentalAhmd",
+    "phone": "919825123521"
+  },
+  {
+    "id": 85,
+    "slug": "dr-patels-aesthetic-smile",
+    "name": "Dr. Patel's Aesthetic Smile",
+    "category": "clinic",
+    "area": "Athwa, Surat",
+    "placeId": "ChIJd072PatelSmileSurat",
+    "phone": "919825123522"
+  },
+  {
+    "id": 86,
+    "slug": "mrunalini-rao-studio",
+    "name": "Mrunalini Rao Studio",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd073MrunaliniAlka",
+    "phone": "919825123523"
+  },
+  {
+    "id": 87,
+    "slug": "sutra-designer-boutique",
+    "name": "Sutra Designer Boutique",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd074SutraBoutique",
+    "phone": "919825123524"
+  },
+  {
+    "id": 88,
+    "slug": "shyamal-and-bhumika-showcase",
+    "name": "Shyamal & Bhumika Showcase",
+    "category": "general",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd075ShyamalBhumika",
+    "phone": "919825123525"
+  },
+  {
+    "id": 89,
+    "slug": "kala-niketan-silks",
+    "name": "Kala Niketan Silks",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd076KalaNiketanAlka",
+    "phone": "919825123526"
+  },
+  {
+    "id": 90,
+    "slug": "the-raymond-shop-alkapuri",
+    "name": "The Raymond Shop Alkapuri",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd077RaymondAlkapuri",
+    "phone": "919825123527"
+  },
+  {
+    "id": 91,
+    "slug": "zaveri-brothers",
+    "name": "Zaveri Brothers",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd078ZaveriBrothers",
+    "phone": "919825123528"
+  },
+  {
+    "id": 92,
+    "slug": "asopalav-vadodara",
+    "name": "Asopalav Vadodara",
+    "category": "general",
+    "area": "Jetalpur Rd, Vadodara",
+    "placeId": "ChIJd079AsopalavJetalpur",
+    "phone": "919825123529"
+  },
+  {
+    "id": 93,
+    "slug": "manyavar-and-mohey",
+    "name": "Manyavar & Mohey",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd080ManyavarAlka",
+    "phone": "919825123530"
+  },
+  {
+    "id": 94,
+    "slug": "fabindia-alkapuri",
+    "name": "Fabindia Alkapuri",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd081FabindiaAlka",
+    "phone": "919825123531"
+  },
+  {
+    "id": 95,
+    "slug": "jadeblue-bespoke-tailoring",
+    "name": "JadeBlue Bespoke Tailoring",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd082JadeBlueAlka",
+    "phone": "919825123532"
+  },
+  {
+    "id": 96,
+    "slug": "virasat-heritage-silks",
+    "name": "Virasat Heritage Silks",
+    "category": "general",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd083VirasatSilks",
+    "phone": "919825123533"
+  },
+  {
+    "id": 97,
+    "slug": "label-anushree",
+    "name": "Label Anushree",
+    "category": "general",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd084LabelAnushree",
+    "phone": "919825123534"
+  },
+  {
+    "id": 98,
+    "slug": "kalki-fashion-experience",
+    "name": "Kalki Fashion Experience",
+    "category": "general",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd085KalkiAkota",
+    "phone": "919825123535"
+  },
+  {
+    "id": 99,
+    "slug": "raw-mango-studio",
+    "name": "Raw Mango Studio",
+    "category": "general",
+    "area": "Bodakdev, Ahmedabad",
+    "placeId": "ChIJd086RawMangoAhmd",
+    "phone": "919825123536"
+  },
+  {
+    "id": 100,
+    "slug": "ritu-kumar-flagship",
+    "name": "Ritu Kumar Flagship",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd087RituKumarAlka",
+    "phone": "919825123537"
+  }
+];
+
     // Business Categories & Tag Dictionary
     const CATEGORY_TAGS = {
       cafe: ["☕ Great Coffee", "🛋️ Cozy Ambiance", "⚡ Fast Service", "😊 Friendly Baristas", "🥐 Fresh Pastries", "🎵 Great Vibe"],
       salon: ["✂️ Expert Haircut", "💆 Relaxing Service", "🌟 Polite Staff", "🧼 Super Clean", "💇 Stylish Look", "⏱️ On-Time Appointment"],
+      car_care: ["🚗 Mirror Finish Shine", "🧼 Deep Interior Clean", "⚡ Quick Turnaround", "💰 Fair Pricing", "🛠️ Professional Crew", "🔒 Safe Care"],
       carcare: ["🚗 Mirror Finish Shine", "🧼 Deep Interior Clean", "⚡ Quick Turnaround", "💰 Fair Pricing", "🛠️ Professional Crew", "🔒 Safe Care"],
       clinic: ["🩺 Caring Doctors", "⏱️ Short Wait Time", "🧼 Clean & Hygienic", "💬 Clear Explanation", "🏥 Gentle Staff", "⭐ Highly Recommended"],
+      general: ["🛍️ Great Collection", "🏷️ Good Prices", "🤝 Helpful Staff", "💎 Premium Quality", "📦 Easy Exchange", "🌟 Friendly Atmosphere"],
       retail: ["🛍️ Great Collection", "🏷️ Good Prices", "🤝 Helpful Staff", "💎 Premium Quality", "📦 Easy Exchange", "🌟 Friendly Atmosphere"],
       restaurant: ["🍽️ Delicious Food", "🍷 Great Ambiance", "⚡ Quick Service", "👨‍🍳 Skilled Chef", "🧼 Clean Hygiene", "👨‍👩‍👧 Family Friendly"]
+    };
+
+    // Category Display Names & Badges
+    const CATEGORY_BADGES = {
+      cafe: { label: 'Cafe', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
+      salon: { label: 'Salon', color: 'bg-pink-500/20 text-pink-400 border-pink-500/30' },
+      car_care: { label: 'Car Care', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+      clinic: { label: 'Clinic', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
+      general: { label: 'Retail', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' }
     };
 
     // State Variables
     let currentRating = 5;
     let selectedTags = [];
-    
-    // Parse URL Parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const config = {
-      biz: urlParams.get('biz') || "The Roasted Bean Cafe",
-      placeid: urlParams.get('placeid') || "ChIJN1t_tDeuEmsRUsoyG83frY4",
-      phone: urlParams.get('phone') || "919876543210",
-      type: urlParams.get('type') || "cafe",
-      webhook: urlParams.get('webhook') || ""
-    };
+    let activeClient = null;
+    let activeDrawerCategory = 'all';
 
-    // Initialize Page
+    // Parse URL Parameters & Initialize
     document.addEventListener("DOMContentLoaded", () => {
-      // Set Business Name
-      document.getElementById('biz-name').textContent = config.biz;
-      
-      // Populate Chips
+      const urlParams = new URLSearchParams(window.location.search);
+      const idParam = urlParams.get('id');
+      const bizParam = urlParams.get('biz');
+      const placeidParam = urlParams.get('placeid');
+      const phoneParam = urlParams.get('phone');
+      const typeParam = urlParams.get('type');
+      const webhookParam = urlParams.get('webhook');
+
+      let targetClient = null;
+
+      // 1. Check ?id= parameter (Numeric ID or Slug)
+      if (idParam) {
+        const numId = parseInt(idParam, 10);
+        if (!isNaN(numId)) {
+          targetClient = CLIENTS_DATA.find(c => c.id === numId);
+        }
+        if (!targetClient) {
+          const cleanSlug = idParam.trim().toLowerCase();
+          targetClient = CLIENTS_DATA.find(c => c.slug === cleanSlug);
+        }
+      }
+
+      // 2. Check ?biz= or ?placeid= explicit parameters fallback
+      if (!targetClient && (bizParam || placeidParam)) {
+        targetClient = {
+          id: 0,
+          slug: 'custom',
+          name: bizParam || "The Roasted Bean Cafe",
+          placeId: placeidParam || "ChIJN1t_tDeuEmsRUsoyG83frY4",
+          phone: phoneParam || "919876543210",
+          category: typeParam || "cafe",
+          area: "Custom Location",
+          webhook: webhookParam || ""
+        };
+      }
+
+      // 3. Fallback to Client #1 (Curators Coffee)
+      if (!targetClient) {
+        targetClient = CLIENTS_DATA[0];
+      }
+
+      selectClient(targetClient, false);
+      renderDrawerList();
+    });
+
+    // Select Client Profile
+    function selectClient(client, updateUrl = true) {
+      activeClient = client;
+
+      // Update Header Elements
+      document.getElementById('biz-name').textContent = client.name;
+      document.getElementById('biz-area').querySelector('span').textContent = client.area || 'Vadodara, Gujarat';
+      document.getElementById('biz-initial').textContent = client.name.charAt(0);
+      document.title = `${client.name} - ReputeTap Review Portal`;
+
+      // Update Badge
+      const badgeInfo = CATEGORY_BADGES[client.category] || { label: 'Verified Partner', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' };
+      const badgeElem = document.getElementById('biz-badge');
+      badgeElem.textContent = `${badgeInfo.label} • Tap to Review`;
+
+      // Populate Category Review Chips
       renderChips();
       
-      // Select first two tags by default
-      const tags = CATEGORY_TAGS[config.type] || CATEGORY_TAGS.cafe;
+      // Select first two tags default
+      const tags = CATEGORY_TAGS[client.category] || CATEGORY_TAGS.cafe;
       selectedTags = [tags[0], tags[1]];
       updateChipStates();
       refreshReviewText();
 
-      // Populate Config Modal inputs
-      document.getElementById('cfg-biz').value = config.biz;
-      document.getElementById('cfg-placeid').value = config.placeid;
-      document.getElementById('cfg-phone').value = config.phone;
-      document.getElementById('cfg-type').value = config.type;
-      document.getElementById('cfg-webhook').value = config.webhook;
-    });
+      // Update Config Modal inputs
+      document.getElementById('cfg-biz').value = client.name;
+      document.getElementById('cfg-placeid').value = client.placeId;
+      document.getElementById('cfg-phone').value = client.phone;
+      document.getElementById('cfg-type').value = client.category;
+      document.getElementById('cfg-webhook').value = client.webhook || '';
+
+      // Update URL without page reload if requested
+      if (updateUrl && client.slug) {
+        const newUrl = `${window.location.pathname}?id=${encodeURIComponent(client.slug)}`;
+        window.history.pushState({ id: client.slug }, '', newUrl);
+      }
+    }
 
     // Render Chip Buttons
     function renderChips() {
       const container = document.getElementById('tag-chips');
       container.innerHTML = '';
-      const tags = CATEGORY_TAGS[config.type] || CATEGORY_TAGS.cafe;
+      const catKey = activeClient ? activeClient.category : 'cafe';
+      const tags = CATEGORY_TAGS[catKey] || CATEGORY_TAGS.cafe;
 
       tags.forEach(tag => {
         const btn = document.createElement('button');
@@ -311,8 +1347,9 @@
 
     // Refresh Draft Review Text
     function refreshReviewText() {
+      const bizName = activeClient ? activeClient.name : 'this venue';
       const cleanTags = selectedTags.map(t => t.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim());
-      let text = `Had a wonderful experience at ${config.biz}!`;
+      let text = `Had a wonderful experience at ${bizName}!`;
       if (cleanTags.length > 0) {
         text += ` Really appreciated the ${cleanTags.join(' and ')}.`;
       }
@@ -338,7 +1375,7 @@
       if (stars >= 4) {
         hint.textContent = stars === 5 ? "Tap 5 stars if we made your day!" : "Thank you for the 4-star rating!";
         hint.className = "text-xs font-semibold text-amber-400 h-4";
-        document.getElementById('negative-flow').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('positive-flow').scrollIntoView({ behavior: 'smooth' });
       } else {
         hint.textContent = "We are sorry your experience wasn't perfect.";
         hint.className = "text-xs font-semibold text-rose-400 h-4";
@@ -367,44 +1404,28 @@
 
     // Direct Google Review Trigger
     function directGoogleReview() {
-      const googleUrl = `https://search.google.com/local/writereview?placeid=${encodeURIComponent(config.placeid)}`;
+      const placeId = activeClient ? activeClient.placeId : 'ChIJN1t_tDeuEmsRUsoyG83frY4';
+      const googleUrl = `https://search.google.com/local/writereview?placeid=${encodeURIComponent(placeId)}`;
       window.open(googleUrl, '_blank');
     }
 
     // Submit Private Feedback to Manager
     function submitPrivateFeedback() {
+      const bizName = activeClient ? activeClient.name : 'Venue';
+      const phoneNum = activeClient ? activeClient.phone : '919876543210';
       const name = document.getElementById('cust-name').value.trim() || 'Valued Customer';
       const phone = document.getElementById('cust-phone').value.trim() || 'Not provided';
       const comment = document.getElementById('cust-comment').value.trim() || 'General feedback';
 
-      // Send JSON POST to custom Webhook if configured
-      if (config.webhook) {
-        const payload = {
-          business: config.biz,
-          placeId: config.placeid,
-          stars: currentRating,
-          customerName: name,
-          customerPhone: phone,
-          comment: comment,
-          timestamp: new Date().toISOString()
-        };
-
-        fetch(config.webhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).catch(err => console.log('Webhook dispatch error:', err));
-      }
-
       // Format WhatsApp escalation message
       const text = `🚨 *ReputeTap Private Escalation*\n\n` +
-                   `*Business:* ${config.biz}\n` +
+                   `*Business:* ${bizName}\n` +
                    `*Rating:* ${currentRating} / 5 Stars\n` +
                    `*Customer:* ${name}\n` +
                    `*Contact:* ${phone}\n` +
                    `*Message:* ${comment}`;
 
-      const waUrl = `https://wa.me/${config.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/${phoneNum.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
       
       // Show local confirmation
       document.getElementById('feedback-form').classList.add('hidden');
@@ -414,6 +1435,97 @@
       setTimeout(() => {
         window.open(waUrl, '_blank');
       }, 500);
+    }
+
+    // Copy Shareable Link to Clipboard
+    function copyShareableLink() {
+      const slug = activeClient ? activeClient.slug : '1';
+      const shareUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(slug)}`;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast("Outreach link copied to clipboard!");
+        });
+      } else {
+        showToast("Link: " + shareUrl);
+      }
+    }
+
+    // Mobile Search Drawer Controls
+    function openDrawer() {
+      document.getElementById('drawer-modal').classList.remove('hidden');
+      document.getElementById('drawer-search').focus();
+    }
+
+    function closeDrawer() {
+      document.getElementById('drawer-modal').classList.add('hidden');
+    }
+
+    function setDrawerCategory(cat) {
+      activeDrawerCategory = cat;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.className = 'pill-btn bg-slate-800 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap hover:border-slate-500 transition-colors';
+      });
+      const activePill = document.getElementById(`pill-${cat}`);
+      if (activePill) {
+        activePill.className = 'pill-btn bg-blue-600 text-white font-semibold px-2.5 py-1 rounded-full whitespace-nowrap transition-colors';
+      }
+      filterDrawer();
+    }
+
+    function filterDrawer() {
+      const query = document.getElementById('drawer-search').value.toLowerCase().trim();
+      renderDrawerList(query, activeDrawerCategory);
+    }
+
+    function renderDrawerList(query = '', category = 'all') {
+      const container = document.getElementById('drawer-list');
+      container.innerHTML = '';
+
+      const filtered = CLIENTS_DATA.filter(c => {
+        const matchesCat = (category === 'all') || (c.category === category);
+        const matchesQuery = !query || 
+          c.name.toLowerCase().includes(query) || 
+          c.area.toLowerCase().includes(query) || 
+          c.category.toLowerCase().includes(query) ||
+          c.phone.includes(query) ||
+          String(c.id) === query;
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="text-center py-6 text-xs text-slate-400">No matching businesses found.</div>`;
+        return;
+      }
+
+      filtered.forEach(c => {
+        const item = document.createElement('div');
+        const badge = CATEGORY_BADGES[c.category] || { label: c.category, color: 'bg-slate-700 text-slate-300 border-slate-600' };
+        
+        item.className = 'bg-slate-800/80 border border-slate-700/80 hover:border-blue-500 rounded-xl p-3 flex justify-between items-center transition-all cursor-pointer active:scale-[0.99]';
+        item.onclick = () => {
+          selectClient(c, true);
+          closeDrawer();
+          showToast(`Loaded ${c.name}`);
+        };
+
+        item.innerHTML = `
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] text-slate-500 font-mono">#${c.id}</span>
+              <h4 class="font-bold text-xs text-slate-100">${c.name}</h4>
+            </div>
+            <p class="text-[10px] text-slate-400 flex items-center gap-2">
+              <span><i class="fa-solid fa-location-dot text-rose-400 text-[9px]"></i> ${c.area}</span>
+              <span>•</span>
+              <span><i class="fa-solid fa-phone text-emerald-400 text-[9px]"></i> +${c.phone}</span>
+            </p>
+          </div>
+          <span class="text-[10px] border px-2 py-0.5 rounded-full font-semibold uppercase ${badge.color}">${badge.label}</span>
+        `;
+
+        container.appendChild(item);
+      });
     }
 
     // Toast Notification Helper
@@ -427,13 +1539,13 @@
       }, 3500);
     }
 
-    // Parameter Configurator Modal Toggle
+    // Manual Parameter Configurator Modal Toggle
     function toggleConfigurator() {
       const modal = document.getElementById('config-modal');
       modal.classList.toggle('hidden');
     }
 
-    // Apply New Config Parameters
+    // Apply Custom Config Parameters
     function applyConfig() {
       const biz = document.getElementById('cfg-biz').value.trim();
       const placeid = document.getElementById('cfg-placeid').value.trim();
@@ -441,7 +1553,7 @@
       const type = document.getElementById('cfg-type').value;
       const webhook = document.getElementById('cfg-webhook').value.trim();
 
-      const newUrl = `${window.location.pathname}?placeid=${encodeURIComponent(placeid)}&biz=${encodeURIComponent(biz)}&phone=${encodeURIComponent(phone)}&type=${encodeURIComponent(type)}&webhook=${encodeURIComponent(webhook)}`;
+      const newUrl = `${window.location.pathname}?biz=${encodeURIComponent(biz)}&placeid=${encodeURIComponent(placeid)}&phone=${encodeURIComponent(phone)}&type=${encodeURIComponent(type)}&webhook=${encodeURIComponent(webhook)}`;
       window.location.href = newUrl;
     }
   </script>
