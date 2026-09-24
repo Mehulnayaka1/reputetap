@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "slug": "curators-coffee",
+    "name": "Curators Coffee",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJo_oNiOXJXzkRiIqVfPOR2bM",
+    "phone": "916359220791"
+  },
+  {
+    "id": 2,
+    "slug": "kaffa-coffee-roasters",
+    "name": "Kaffa Coffee Roasters",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJbxksNgDJXzkRQCdWhfQqqI8",
+    "phone": "919825336364"
+  },
+  {
+    "id": 3,
+    "slug": "the-coffee-next-door",
+    "name": "The Coffee Next Door",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJkfGRZBfJXzkRH2DriWnxt7w",
+    "phone": "919978623256"
+  },
+  {
+    "id": 4,
+    "slug": "charmant-the-heritage-caf",
+    "name": "Charmant – The Heritage Café",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJIzxoa-DJXzkRkOAWlKkybUI",
+    "phone": "919773050954"
+  },
+  {
+    "id": 5,
+    "slug": "burgundy-cafe",
+    "name": "Burgundy Cafe",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJmSUjCfnJXzkRHBxoORI4Jxo",
+    "phone": "916357575811"
+  },
+  {
+    "id": 6,
+    "slug": "trinity-cafe",
+    "name": "Trinity Cafe",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJkZekRPXJXzkRtzN9N2DK3Dc",
+    "phone": "919712348900"
+  },
+  {
+    "id": 7,
+    "slug": "the-dark-roast",
+    "name": "The Dark Roast",
+    "category": "cafe",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd001GotriVadodara001",
+    "phone": "919825123451"
+  },
+  {
+    "id": 8,
+    "slug": "brew-artisan-cafe",
+    "name": "Brew Artisan Cafe",
+    "category": "cafe",
+    "area": "Vasna, Vadodara",
+    "placeId": "ChIJd002VasnaVadodara002",
+    "phone": "919825123452"
+  },
+  {
+    "id": 9,
+    "slug": "mocha-vadodara",
+    "name": "Mocha Vadodara",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd003MochaAlkapuri003",
+    "phone": "919825123453"
+  },
+  {
+    "id": 10,
+    "slug": "cafe-fitoor",
+    "name": "Cafe Fitoor",
+    "category": "cafe",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd004Fatehgunj004",
+    "phone": "919825123454"
+  },
+  {
+    "id": 11,
+    "slug": "the-secret-kitchen",
+    "name": "The Secret Kitchen",
+    "category": "restaurant",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd005SecretKitchen05",
+    "phone": "919825123455"
+  },
+  {
+    "id": 12,
+    "slug": "kai-asia",
+    "name": "Kai Asia",
+    "category": "restaurant",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd006KaiAsia06",
+    "phone": "919825123456"
+  },
+  {
+    "id": 13,
+    "slug": "gazebo-garden-restaurant",
+    "name": "Gazebo Garden Restaurant",
+    "category": "restaurant",
+    "area": "Sevasi, Vadodara",
+    "placeId": "ChIJd007GazeboSevasi07",
+    "phone": "919825123457"
+  },
+  {
+    "id": 14,
+    "slug": "little-italy",
+    "name": "Little Italy",
+    "category": "restaurant",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd008LittleItaly08",
+    "phone": "919825123458"
+  },
+  {
+    "id": 15,
+    "slug": "22nd-parallel",
+    "name": "22nd Parallel",
+    "category": "restaurant",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd00922ndParallel09",
+    "phone": "919825123459"
+  },
+  {
+    "id": 16,
+    "slug": "salsa-kitchen",
+    "name": "Salsa Kitchen",
+    "category": "restaurant",
+    "area": "Gotri Rd, Vadodara",
+    "placeId": "ChIJd010SalsaGotri10",
+    "phone": "919825123460"
+  },
+  {
+    "id": 17,
+    "slug": "barbeque-nation",
+    "name": "Barbeque Nation",
+    "category": "restaurant",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd011BBQAlkapuri11",
+    "phone": "919825123461"
+  },
+  {
+    "id": 18,
+    "slug": "that-place",
+    "name": "That Place",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd012ThatPlaceAlkapuri",
+    "phone": "919825123462"
+  },
+  {
+    "id": 19,
+    "slug": "fresh-roast",
+    "name": "Fresh Roast",
+    "category": "cafe",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd013FreshRoastAkota",
+    "phone": "919825123463"
+  },
+  {
+    "id": 20,
+    "slug": "coffee-culture",
+    "name": "Coffee Culture",
+    "category": "cafe",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd014CCManjalpur14",
+    "phone": "919825123464"
+  },
+  {
+    "id": 21,
+    "slug": "chai-sutta-bar",
+    "name": "Chai Sutta Bar",
+    "category": "cafe",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd015CSBFatehgunj15",
+    "phone": "919825123465"
+  },
+  {
+    "id": 22,
+    "slug": "keventers-vadodara",
+    "name": "Keventers Vadodara",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd016KeventersAlka16",
+    "phone": "919825123466"
+  },
+  {
+    "id": 23,
+    "slug": "crust-crumbs-patisserie",
+    "name": "Crust & Crumbs Patisserie",
+    "category": "cafe",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd017CrustCrumbs17",
+    "phone": "919825123467"
+  },
+  {
+    "id": 24,
+    "slug": "bake-my-day",
+    "name": "Bake My Day",
+    "category": "cafe",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd018BakeMyDay18",
+    "phone": "919825123468"
+  },
+  {
+    "id": 25,
+    "slug": "the-chocolate-room",
+    "name": "The Chocolate Room",
+    "category": "cafe",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd019ChocRoomAlka19",
+    "phone": "919825123469"
+  },
+  {
+    "id": 26,
+    "slug": "styloria-unisex-hair-studio-lounge",
+    "name": "Styloria Unisex Hair Studio & Lounge",
+    "category": "salon",
+    "area": "Genda Circle, Vadodara",
+    "placeId": "ChIJh4ViBbPJXzkRFE0rESmWYYI",
+    "phone": "919974098750"
+  },
+  {
+    "id": 27,
+    "slug": "styloria-unisex-hair-studio",
+    "name": "Styloria Unisex Hair Studio",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJ8QRtioDJXzkRc4JW4Eyf4dc",
+    "phone": "917600088148"
+  },
+  {
+    "id": 28,
+    "slug": "enrich-salon-vadodara",
+    "name": "Enrich Salon Vadodara",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJoehf7PHJXzkR2W3hkzHD3gs",
+    "phone": "919152253000"
+  },
+  {
+    "id": 29,
+    "slug": "wave-salon-academy",
+    "name": "Wave Salon & Academy",
+    "category": "salon",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJJyzg797JXzkR40diSktnlrg",
+    "phone": "918238307599"
+  },
+  {
+    "id": 30,
+    "slug": "lakme-salon-for-him-her",
+    "name": "Lakme Salon For Him & Her",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJCbh_omDJXzkRCUHgUQKOPIE",
+    "phone": "918291128445"
+  },
+  {
+    "id": 31,
+    "slug": "cutz-beauty-salon",
+    "name": "Cutz Beauty Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJX_QpDbvIXzkRAkzxkMC-J1c",
+    "phone": "912652323222"
+  },
+  {
+    "id": 32,
+    "slug": "champion-ladies-gents-salon",
+    "name": "Champion Ladies & Gents Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJq6qqarHIXzkRuDgkBWlAF5E",
+    "phone": "919724661172"
+  },
+  {
+    "id": 33,
+    "slug": "truefitt-hill",
+    "name": "Truefitt & Hill",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd020TruefittAlka20",
+    "phone": "919825123470"
+  },
+  {
+    "id": 34,
+    "slug": "toni-guy",
+    "name": "Toni & Guy",
+    "category": "salon",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd021ToniGuyRace21",
+    "phone": "919825123471"
+  },
+  {
+    "id": 35,
+    "slug": "jawed-habib-hair-beauty",
+    "name": "Jawed Habib Hair & Beauty",
+    "category": "salon",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd022JawedHabibGot22",
+    "phone": "919825123472"
+  },
+  {
+    "id": 36,
+    "slug": "bespoke-hair-studio",
+    "name": "Bespoke Hair Studio",
+    "category": "salon",
+    "area": "Vasna Rd, Vadodara",
+    "placeId": "ChIJd023BespokeVasna23",
+    "phone": "919825123473"
+  },
+  {
+    "id": 37,
+    "slug": "the-nail-room-baroda",
+    "name": "The Nail Room Baroda",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd024NailRoomAlka24",
+    "phone": "919825123474"
+  },
+  {
+    "id": 38,
+    "slug": "glam-studio",
+    "name": "Glam Studio",
+    "category": "salon",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd025GlamManjalpur25",
+    "phone": "919825123475"
+  },
+  {
+    "id": 39,
+    "slug": "geetanjali-salon",
+    "name": "Geetanjali Salon",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd026GeetanjaliAlka26",
+    "phone": "919825123476"
+  },
+  {
+    "id": 40,
+    "slug": "looks-salon",
+    "name": "Looks Salon",
+    "category": "salon",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd027LooksBhayli27",
+    "phone": "919825123477"
+  },
+  {
+    "id": 41,
+    "slug": "headmasters-salon",
+    "name": "Headmasters Salon",
+    "category": "salon",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd028HeadmastersOPR",
+    "phone": "919825123478"
+  },
+  {
+    "id": 42,
+    "slug": "aura-thai-spa",
+    "name": "Aura Thai Spa",
+    "category": "salon",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd029AuraThaiSpa29",
+    "phone": "919825123479"
+  },
+  {
+    "id": 43,
+    "slug": "o2-spa",
+    "name": "O2 Spa",
+    "category": "salon",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd030O2SpaBaroda30",
+    "phone": "919825123480"
+  },
+  {
+    "id": 44,
+    "slug": "tress-glow",
+    "name": "Tress & Glow",
+    "category": "salon",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd031TressGlowKarel",
+    "phone": "919825123481"
+  },
+  {
+    "id": 45,
+    "slug": "scissors-sound-salon",
+    "name": "Scissors Sound Salon",
+    "category": "salon",
+    "area": "Waghodia Rd, Vadodara",
+    "placeId": "ChIJd032ScissorsSound32",
+    "phone": "919825123482"
+  },
+  {
+    "id": 46,
+    "slug": "blush-bloom-makeovers",
+    "name": "Blush & Bloom Makeovers",
+    "category": "salon",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd033BlushBloomSub",
+    "phone": "919825123483"
+  },
+  {
+    "id": 47,
+    "slug": "sizzling-scizzors",
+    "name": "Sizzling Scizzors",
+    "category": "salon",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd034SizzlingGotri",
+    "phone": "919825123484"
+  },
+  {
+    "id": 48,
+    "slug": "studio-99-salon-spa",
+    "name": "Studio 99 Salon & Spa",
+    "category": "salon",
+    "area": "Atladara, Vadodara",
+    "placeId": "ChIJd035Studio99Atla",
+    "phone": "919825123485"
+  },
+  {
+    "id": 49,
+    "slug": "the-grooming-co",
+    "name": "The Grooming Co.",
+    "category": "salon",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd036GroomingCoAkota",
+    "phone": "919825123486"
+  },
+  {
+    "id": 50,
+    "slug": "envy-unisex-salon",
+    "name": "Envy Unisex Salon",
+    "category": "salon",
+    "area": "Harni Rd, Vadodara",
+    "placeId": "ChIJd037EnvyHarni37",
+    "phone": "919825123487"
+  },
+  {
+    "id": 51,
+    "slug": "the-detailing-mafia",
+    "name": "The Detailing Mafia",
+    "category": "car_care",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd038DetailingMafiaOPR",
+    "phone": "919825123488"
+  },
+  {
+    "id": 52,
+    "slug": "ceramic-pro-vadodara",
+    "name": "Ceramic Pro Vadodara",
+    "category": "car_care",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd039CeramicProGotri",
+    "phone": "919825123489"
+  },
+  {
+    "id": 53,
+    "slug": "express-car-wash",
+    "name": "Express Car Wash",
+    "category": "car_care",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd040ExpressWashAlka",
+    "phone": "919825123490"
+  },
+  {
+    "id": 54,
+    "slug": "3m-car-care",
+    "name": "3M Car Care",
+    "category": "car_care",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd0413MCarCareAkota",
+    "phone": "919825123491"
+  },
+  {
+    "id": 55,
+    "slug": "speed-car-wash",
+    "name": "Speed Car Wash",
+    "category": "car_care",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd042SpeedWashManjal",
+    "phone": "919825123492"
+  },
+  {
+    "id": 56,
+    "slug": "autoshine-detailing-studio",
+    "name": "Autoshine Detailing Studio",
+    "category": "car_care",
+    "area": "Sevasi, Vadodara",
+    "placeId": "ChIJd043AutoshineSevasi",
+    "phone": "919825123493"
+  },
+  {
+    "id": 57,
+    "slug": "motoclean-studio",
+    "name": "MotoClean Studio",
+    "category": "car_care",
+    "area": "Vasna, Vadodara",
+    "placeId": "ChIJd044MotoCleanVasna",
+    "phone": "919825123494"
+  },
+  {
+    "id": 58,
+    "slug": "torque-detailing-hub",
+    "name": "Torque Detailing Hub",
+    "category": "car_care",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd045TorqueBhayli45",
+    "phone": "919825123495"
+  },
+  {
+    "id": 59,
+    "slug": "gloss-autoworks",
+    "name": "Gloss Autoworks",
+    "category": "car_care",
+    "area": "Sama-Savli Rd, Vadodara",
+    "placeId": "ChIJd046GlossSama46",
+    "phone": "919825123496"
+  },
+  {
+    "id": 60,
+    "slug": "carzspa-vadodara",
+    "name": "CarzSpa Vadodara",
+    "category": "car_care",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd047CarzSpaKarel47",
+    "phone": "919825123497"
+  },
+  {
+    "id": 61,
+    "slug": "prime-auto-detailing",
+    "name": "Prime Auto Detailing",
+    "category": "car_care",
+    "area": "Waghodia Rd, Vadodara",
+    "placeId": "ChIJd048PrimeAutoWagh",
+    "phone": "919825123498"
+  },
+  {
+    "id": 62,
+    "slug": "the-car-lounge",
+    "name": "The Car Lounge",
+    "category": "car_care",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd049CarLoungeGotri",
+    "phone": "919825123499"
+  },
+  {
+    "id": 63,
+    "slug": "pitstop-car-spa",
+    "name": "Pitstop Car Spa",
+    "category": "car_care",
+    "area": "Atladara, Vadodara",
+    "placeId": "ChIJd050PitstopAtladara",
+    "phone": "919825123500"
+  },
+  {
+    "id": 64,
+    "slug": "royal-touch-car-care",
+    "name": "Royal Touch Car Care",
+    "category": "car_care",
+    "area": "Fatehgunj, Vadodara",
+    "placeId": "ChIJd051RoyalTouchFateh",
+    "phone": "919825123501"
+  },
+  {
+    "id": 65,
+    "slug": "revive-auto-detailing",
+    "name": "Revive Auto Detailing",
+    "category": "car_care",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd052ReviveSubhan",
+    "phone": "919825123502"
+  },
+  {
+    "id": 66,
+    "slug": "shieldpro-detailing",
+    "name": "ShieldPro Detailing",
+    "category": "car_care",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd053ShieldProAlka",
+    "phone": "919825123503"
+  },
+  {
+    "id": 67,
+    "slug": "autogleam-car-wash",
+    "name": "AutoGleam Car Wash",
+    "category": "car_care",
+    "area": "Harni, Vadodara",
+    "placeId": "ChIJd054AutoGleamHarni",
+    "phone": "919825123504"
+  },
+  {
+    "id": 68,
+    "slug": "urban-auto-spa",
+    "name": "Urban Auto Spa",
+    "category": "car_care",
+    "area": "Gorwa, Vadodara",
+    "placeId": "ChIJd055UrbanAutoGorwa",
+    "phone": "919825123505"
+  },
+  {
+    "id": 69,
+    "slug": "apex-ceramic-lab",
+    "name": "Apex Ceramic Lab",
+    "category": "car_care",
+    "area": "Makarba, Ahmedabad",
+    "placeId": "ChIJd056ApexCeramicAhmd",
+    "phone": "919825123506"
+  },
+  {
+    "id": 70,
+    "slug": "autowrap-studio",
+    "name": "AutoWrap Studio",
+    "category": "car_care",
+    "area": "Vesu, Surat",
+    "placeId": "ChIJd057AutoWrapSurat",
+    "phone": "919825123507"
+  },
+  {
+    "id": 71,
+    "slug": "smile-care-dental-clinic",
+    "name": "Smile Care Dental Clinic",
+    "category": "clinic",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd058SmileCareAlka",
+    "phone": "919825123508"
+  },
+  {
+    "id": 72,
+    "slug": "32-pearls-dental-care",
+    "name": "32 Pearls Dental Care",
+    "category": "clinic",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd05932PearlsGotri",
+    "phone": "919825123509"
+  },
+  {
+    "id": 73,
+    "slug": "baroda-dental-studio",
+    "name": "Baroda Dental Studio",
+    "category": "clinic",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd060BarodaDentalRC",
+    "phone": "919825123510"
+  },
+  {
+    "id": 74,
+    "slug": "dr-dhrutis-aesthetic-clinic",
+    "name": "Dr. Dhruti's Aesthetic Clinic",
+    "category": "clinic",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd061DhrutiAesthetic",
+    "phone": "919825123511"
+  },
+  {
+    "id": 75,
+    "slug": "aura-skin-hair-clinic",
+    "name": "Aura Skin & Hair Clinic",
+    "category": "clinic",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd062AuraSkinAkota",
+    "phone": "919825123512"
+  },
+  {
+    "id": 76,
+    "slug": "the-dental-hub",
+    "name": "The Dental Hub",
+    "category": "clinic",
+    "area": "Vasna Rd, Vadodara",
+    "placeId": "ChIJd063DentalHubVasna",
+    "phone": "919825123513"
+  },
+  {
+    "id": 77,
+    "slug": "cosmodent-dental-care",
+    "name": "Cosmodent Dental Care",
+    "category": "clinic",
+    "area": "Manjalpur, Vadodara",
+    "placeId": "ChIJd064CosmodentManj",
+    "phone": "919825123514"
+  },
+  {
+    "id": 78,
+    "slug": "dermaelite-skin-studio",
+    "name": "DermaElite Skin Studio",
+    "category": "clinic",
+    "area": "Old Padra Rd, Vadodara",
+    "placeId": "ChIJd065DermaEliteOPR",
+    "phone": "919825123515"
+  },
+  {
+    "id": 79,
+    "slug": "dr-trivedi-dental-hospital",
+    "name": "Dr. Trivedi Dental Hospital",
+    "category": "clinic",
+    "area": "Karelibaug, Vadodara",
+    "placeId": "ChIJd066TrivediDental",
+    "phone": "919825123516"
+  },
+  {
+    "id": 80,
+    "slug": "dentique-advanced-dental",
+    "name": "Dentique Advanced Dental",
+    "category": "clinic",
+    "area": "Bhayli, Vadodara",
+    "placeId": "ChIJd067DentiqueBhayli",
+    "phone": "919825123517"
+  },
+  {
+    "id": 81,
+    "slug": "clearsmile-orthodontics",
+    "name": "ClearSmile Orthodontics",
+    "category": "clinic",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd068ClearSmileSayaji",
+    "phone": "919825123518"
+  },
+  {
+    "id": 82,
+    "slug": "radiance-skin-clinic",
+    "name": "Radiance Skin Clinic",
+    "category": "clinic",
+    "area": "Subhanpura, Vadodara",
+    "placeId": "ChIJd069RadianceSubhan",
+    "phone": "919825123519"
+  },
+  {
+    "id": 83,
+    "slug": "perfect-smile-clinic",
+    "name": "Perfect Smile Clinic",
+    "category": "clinic",
+    "area": "Harni Rd, Vadodara",
+    "placeId": "ChIJd070PerfectSmileHarni",
+    "phone": "919825123520"
+  },
+  {
+    "id": 84,
+    "slug": "zenith-dental-care",
+    "name": "Zenith Dental Care",
+    "category": "clinic",
+    "area": "Sindhu Bhavan, Ahmedabad",
+    "placeId": "ChIJd071ZenithDentalAhmd",
+    "phone": "919825123521"
+  },
+  {
+    "id": 85,
+    "slug": "dr-patels-aesthetic-smile",
+    "name": "Dr. Patel's Aesthetic Smile",
+    "category": "clinic",
+    "area": "Athwa, Surat",
+    "placeId": "ChIJd072PatelSmileSurat",
+    "phone": "919825123522"
+  },
+  {
+    "id": 86,
+    "slug": "mrunalini-rao-studio",
+    "name": "Mrunalini Rao Studio",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd073MrunaliniAlka",
+    "phone": "919825123523"
+  },
+  {
+    "id": 87,
+    "slug": "sutra-designer-boutique",
+    "name": "Sutra Designer Boutique",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd074SutraBoutique",
+    "phone": "919825123524"
+  },
+  {
+    "id": 88,
+    "slug": "shyamal-bhumika-showcase",
+    "name": "Shyamal & Bhumika Showcase",
+    "category": "general",
+    "area": "Race Course, Vadodara",
+    "placeId": "ChIJd075ShyamalBhumika",
+    "phone": "919825123525"
+  },
+  {
+    "id": 89,
+    "slug": "kala-niketan-silks",
+    "name": "Kala Niketan Silks",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd076KalaNiketanAlka",
+    "phone": "919825123526"
+  },
+  {
+    "id": 90,
+    "slug": "the-raymond-shop-alkapuri",
+    "name": "The Raymond Shop Alkapuri",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd077RaymondAlkapuri",
+    "phone": "919825123527"
+  },
+  {
+    "id": 91,
+    "slug": "zaveri-brothers",
+    "name": "Zaveri Brothers",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd078ZaveriBrothers",
+    "phone": "919825123528"
+  },
+  {
+    "id": 92,
+    "slug": "asopalav-vadodara",
+    "name": "Asopalav Vadodara",
+    "category": "general",
+    "area": "Jetalpur Rd, Vadodara",
+    "placeId": "ChIJd079AsopalavJetalpur",
+    "phone": "919825123529"
+  },
+  {
+    "id": 93,
+    "slug": "manyavar-mohey",
+    "name": "Manyavar & Mohey",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd080ManyavarAlka",
+    "phone": "919825123530"
+  },
+  {
+    "id": 94,
+    "slug": "fabindia-alkapuri",
+    "name": "Fabindia Alkapuri",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd081FabindiaAlka",
+    "phone": "919825123531"
+  },
+  {
+    "id": 95,
+    "slug": "jadeblue-bespoke-tailoring",
+    "name": "JadeBlue Bespoke Tailoring",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd082JadeBlueAlka",
+    "phone": "919825123532"
+  },
+  {
+    "id": 96,
+    "slug": "virasat-heritage-silks",
+    "name": "Virasat Heritage Silks",
+    "category": "general",
+    "area": "Sayajigunj, Vadodara",
+    "placeId": "ChIJd083VirasatSilks",
+    "phone": "919825123533"
+  },
+  {
+    "id": 97,
+    "slug": "label-anushree",
+    "name": "Label Anushree",
+    "category": "general",
+    "area": "Gotri, Vadodara",
+    "placeId": "ChIJd084LabelAnushree",
+    "phone": "919825123534"
+  },
+  {
+    "id": 98,
+    "slug": "kalki-fashion-experience",
+    "name": "Kalki Fashion Experience",
+    "category": "general",
+    "area": "Akota, Vadodara",
+    "placeId": "ChIJd085KalkiAkota",
+    "phone": "919825123535"
+  },
+  {
+    "id": 99,
+    "slug": "raw-mango-studio",
+    "name": "Raw Mango Studio",
+    "category": "general",
+    "area": "Bodakdev, Ahmedabad",
+    "placeId": "ChIJd086RawMangoAhmd",
+    "phone": "919825123536"
+  },
+  {
+    "id": 100,
+    "slug": "ritu-kumar-flagship",
+    "name": "Ritu Kumar Flagship",
+    "category": "general",
+    "area": "Alkapuri, Vadodara",
+    "placeId": "ChIJd087RituKumarAlka",
+    "phone": "919825123537"
+  }
+]
