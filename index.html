@@ -184,13 +184,23 @@
       <div class="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase">
         <i class="fa-solid fa-store"></i> Counter Upgrade
       </div>
+      <div class="flex items-center justify-center gap-2 mb-1">
+        <span class="text-xs text-slate-400 line-through">₹2,999</span>
+        <span class="text-base font-extrabold text-amber-400">₹299 ONLY</span>
+        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">90% OFF</span>
+      </div>
+      <div class="flex items-center justify-center gap-2 mb-1">
+        <span class="text-xs text-slate-400 line-through">₹2,999</span>
+        <span class="text-base font-extrabold text-amber-400">₹299 ONLY</span>
+        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">90% OFF</span>
+      </div>
       <h3 class="text-sm font-bold text-white leading-tight">Get 2 Custom Branded Acrylic Standees for Your Counter</h3>
       <p class="text-[11px] text-slate-300 leading-snug">
-        Includes laser-cut acrylic, UV logo print, embedded high-speed NFC, and lifetime routing. Flat ₹2,999 setup. Zero monthly software fees.
+        Includes laser-cut acrylic, UV logo print, embedded high-speed NFC, and lifetime routing. Special Launch Offer: ₹299 ONLY for first 100 venues (Regular ₹2,999). Zero monthly fees.
       </p>
       <button onclick="orderStandeesWhatsApp()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 text-xs transition-all active:scale-[0.98]">
         <i class="fa-brands fa-whatsapp text-base"></i>
-        <span>Order for Your Counter via WhatsApp (₹2,999)</span>
+        <span>Order 2 Standees via WhatsApp at ₹299 Only</span>
       </button>
     </div>
 
@@ -246,7 +256,7 @@
       </div>
 
       <button onclick="claimStandeesWhatsApp()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-amber-500/20 text-xs transition-all active:scale-[0.98]">
-        Claim Standees & Activate Live Alerts (₹2,999)
+        Claim Standees & Activate Live Alerts (₹299 Only)
       </button>
     </div>
   </div>
@@ -1527,13 +1537,13 @@
 
     function claimStandeesWhatsApp() {
       const bizName = activeClient ? activeClient.name : 'our venue';
-      const text = `Hi Mehul, I tested the ReputeTap counter demo for ${bizName}. I want to order 2 custom acrylic standees for our counter.`;
+      const text = `Hi Mehul, I tested the ReputeTap counter demo for ${bizName}. I want to order 2 custom acrylic standees at the ₹299 launch price (Regular ₹2,999).`;
       window.open(`https://wa.me/916359220791?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     function orderStandeesWhatsApp() {
       const bizName = activeClient ? activeClient.name : 'our venue';
-      const text = `Hi Mehul! I would like to order 2 custom branded ReputeTap counter standees for ${bizName}.`;
+      const text = `Hi Mehul! I would like to order 2 custom branded ReputeTap counter standees at the ₹299 launch price for ${bizName}.`;
       window.open(`https://wa.me/916359220791?text=${encodeURIComponent(text)}`, '_blank');
     }
 

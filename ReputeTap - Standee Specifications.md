@@ -63,7 +63,8 @@
 
 ## 5. Sales Pricing & Profit Margins
 
-- **Client Setup Package Price**: ₹2,999 (~$36.00)
+- **Vadodara Launch Sprint Package Price (First 100 Venues)**: ₹299 (~$3.60)
+- **Standard Client Package Price (Post-Launch)**: ₹2,999 (~$36.00)
   - Includes: 2x Custom Branded Acrylic Standees + Lifetime Hosted Micro-Landing Page Setup + QR/NFC Programming.
 - **Total Production Cost for Pair**: ₹420 – ₹620 (~$5.00 – $7.40)
-- **Gross Profit Margin per Sale**: **80% to 85%** (Profit: ~₹2,380 – ₹2,579 per location).
+- **Launch Offer Goal**: Drive 100 instant partner venue deployments in Vadodara to establish market dominance before activating recurring monthly SMS/WhatsApp alert add-ons.

@@ -37,9 +37,11 @@
 
 ### Phase 3: The Low-Friction Closing Offer
 > **Owner**: "How much does something like this cost?"  
-> **You**: "Local agencies charge ₹20,000/month for general SEO. For ReputeTap, you get two custom laser-cut acrylic standees with your logo and colors, fully programmed for your Google profile, for a one-time setup of ₹2,999. Zero monthly software fees, zero recurring apps. You just place it next to your card machine.
+> **You**: "Local agencies charge ₹20,000/month for general SEO retainers. The regular price for ReputeTap is a one-time ₹2,999 for 2 custom acrylic standees with zero monthly fees.
 > 
-> If you'd like, I can have your two customized standees delivered and set up on your counter by Thursday. Should we get your logo printed on matte black or crystal clear acrylic?"
+> However, as part of our Vadodara Launch Sprint for the first 100 local businesses, we are delivering the complete setup—2 custom laser-cut acrylic standees with your logo, high-speed NFC chips, and lifetime digital routing—for just ₹299 total! Zero monthly software fees, zero apps to install.
+> 
+> If you'd like, I can have your two customized standees delivered and set up on your counter this week. Should we get your logo printed on matte black or crystal clear acrylic?"
 
 ---
 
