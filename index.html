@@ -44,17 +44,17 @@
   <!-- Header Section -->
   <header class="text-center pt-3 pb-2 relative">
     <div class="flex justify-between items-center mb-3">
-      <div class="inline-flex items-center gap-1.5 bg-slate-800/80 border border-slate-700/60 rounded-full px-3 py-1 text-[11px]">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="font-semibold text-slate-300 uppercase tracking-wider" id="biz-badge">Verified Review Portal</span>
+      <div class="inline-flex items-center gap-1.5 bg-slate-800/80 border border-slate-700/60 rounded-full px-3 py-1 text-[10px]">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="font-bold text-amber-400 tracking-wider uppercase" id="biz-badge">⚡ COUNTER STANDEE PREVIEW • CURATORS COFFEE</span>
       </div>
-      <button onclick="copyShareableLink()" class="bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 transition-colors">
+      <button onclick="copyShareableLink()" class="admin-control hidden bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 transition-colors">
         <i class="fa-solid fa-link text-[10px]"></i>
         <span>Share Link</span>
       </button>
     </div>
 
-    <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-2.5 shadow-lg shadow-blue-500/20 ring-4 ring-slate-800 transition-all duration-300">
+    <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg shadow-blue-500/20 ring-4 ring-slate-800 transition-all duration-300">
       <span id="biz-initial" class="text-2xl font-extrabold text-white uppercase">C</span>
     </div>
     
@@ -63,6 +63,14 @@
       <i class="fa-solid fa-location-dot text-rose-400 text-[10px]"></i>
       <span>Alkapuri, Vadodara</span>
     </p>
+
+    <!-- Counter Standee Digital Simulation Sub-Header Indicator -->
+    <div class="mt-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl px-3 py-1.5 text-center">
+      <p class="text-[11px] font-medium text-amber-300/90 leading-tight">
+        <i class="fa-solid fa-wand-magic-sparkles text-amber-400 mr-1"></i>
+        Digital simulation of your cash counter NFC standee. Physical acrylic units delivered to your counter.
+      </p>
+    </div>
   </header>
 
   <!-- Main Card Container -->
@@ -72,12 +80,12 @@
     <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl text-center backdrop-blur-sm">
       <h2 class="text-xs font-medium text-slate-300 mb-2.5">How was your visit today?</h2>
       
-      <div id="star-container" class="flex justify-center items-center gap-2 mb-2">
-        <button onclick="rateExperience(1)" class="star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1" data-star="1"><i class="fa-solid fa-star"></i></button>
-        <button onclick="rateExperience(2)" class="star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1" data-star="2"><i class="fa-solid fa-star"></i></button>
-        <button onclick="rateExperience(3)" class="star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1" data-star="3"><i class="fa-solid fa-star"></i></button>
-        <button onclick="rateExperience(4)" class="star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1" data-star="4"><i class="fa-solid fa-star"></i></button>
-        <button onclick="rateExperience(5)" class="star-btn text-3xl text-amber-400 star-glow transition-transform active:scale-125 focus:outline-none p-1" data-star="5"><i class="fa-solid fa-star"></i></button>
+      <div id="star-container" class="flex justify-center items-center gap-2 mb-2" onmouseleave="resetStarHover()">
+        <button onclick="rateExperience(1)" onmouseenter="previewStars(1)" class="star-btn text-3xl transition-transform active:scale-125 focus:outline-none p-1" data-star="1"><i class="fa-solid fa-star"></i></button>
+        <button onclick="rateExperience(2)" onmouseenter="previewStars(2)" class="star-btn text-3xl transition-transform active:scale-125 focus:outline-none p-1" data-star="2"><i class="fa-solid fa-star"></i></button>
+        <button onclick="rateExperience(3)" onmouseenter="previewStars(3)" class="star-btn text-3xl transition-transform active:scale-125 focus:outline-none p-1" data-star="3"><i class="fa-solid fa-star"></i></button>
+        <button onclick="rateExperience(4)" onmouseenter="previewStars(4)" class="star-btn text-3xl transition-transform active:scale-125 focus:outline-none p-1" data-star="4"><i class="fa-solid fa-star"></i></button>
+        <button onclick="rateExperience(5)" onmouseenter="previewStars(5)" class="star-btn text-3xl transition-transform active:scale-125 focus:outline-none p-1" data-star="5"><i class="fa-solid fa-star"></i></button>
       </div>
 
       <p id="rating-hint" class="text-xs font-semibold text-amber-400 h-4">Tap 5 stars if we made your day!</p>
@@ -160,7 +168,7 @@
         </button>
       </div>
 
-      <!-- Confirmation Toast inside card -->
+      <!-- Confirmation Toast inside card (Active Mode) -->
       <div id="feedback-success" class="hidden bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3.5 text-center space-y-1.5">
         <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
           <i class="fa-solid fa-check text-sm"></i>
@@ -171,21 +179,36 @@
       </div>
     </div>
 
+    <!-- High-Converting "Claim Your Counter Standees" Footer CTA Banner -->
+    <div class="bg-gradient-to-br from-slate-800 via-slate-850 to-slate-900 border border-amber-500/40 rounded-2xl p-4 shadow-xl text-center space-y-2.5 my-3 relative overflow-hidden">
+      <div class="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase">
+        <i class="fa-solid fa-store"></i> Counter Upgrade
+      </div>
+      <h3 class="text-sm font-bold text-white leading-tight">Get 2 Custom Branded Acrylic Standees for Your Counter</h3>
+      <p class="text-[11px] text-slate-300 leading-snug">
+        Includes laser-cut acrylic, UV logo print, embedded high-speed NFC, and lifetime routing. Flat ₹2,999 setup. Zero monthly software fees.
+      </p>
+      <button onclick="orderStandeesWhatsApp()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 text-xs transition-all active:scale-[0.98]">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Order for Your Counter via WhatsApp (₹2,999)</span>
+      </button>
+    </div>
+
   </main>
 
-  <!-- Footer & Business Switcher Controls -->
+  <!-- Footer & Admin Controls Container -->
   <footer class="text-center pt-3 pb-2 border-t border-slate-800 space-y-2.5">
     <div class="flex flex-col gap-1.5">
-      <button onclick="openDrawer()" class="w-full bg-gradient-to-r from-slate-800 to-slate-800/90 hover:from-slate-700 hover:to-slate-800 border border-blue-500/40 text-blue-400 font-semibold py-2.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-xs active:scale-[0.98]">
+      <button onclick="openDrawer()" class="admin-control hidden w-full bg-gradient-to-r from-slate-800 to-slate-800/90 hover:from-slate-700 hover:to-slate-800 border border-blue-500/40 text-blue-400 font-semibold py-2.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-xs active:scale-[0.98]">
         <i class="fa-solid fa-bolt text-amber-400"></i>
         <span>⚡ Switch Business (100 Profiles)</span>
       </button>
 
       <div class="flex justify-center gap-2 text-[10px]">
-        <button onclick="copyShareableLink()" class="text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+        <button onclick="copyShareableLink()" class="admin-control hidden text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
           <i class="fa-solid fa-share-nodes"></i> Copy Outreach Link
         </button>
-        <button onclick="toggleConfigurator()" class="text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+        <button onclick="toggleConfigurator()" class="admin-control hidden text-slate-400 hover:text-slate-200 bg-slate-800/60 border border-slate-700/50 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
           <i class="fa-solid fa-gear"></i> Custom URL Config
         </button>
       </div>
@@ -200,6 +223,32 @@
   <div id="toast" class="fixed bottom-16 left-1/2 -translate-x-1/2 bg-slate-800 border border-emerald-500/50 text-white text-xs px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 transition-all opacity-0 pointer-events-none z-50">
     <i class="fa-solid fa-circle-check text-emerald-400"></i>
     <span id="toast-msg">Review copied to clipboard!</span>
+  </div>
+
+  <!-- Demo Lock Alert Modal (Triggered on Private Feedback in Demo Mode) -->
+  <div id="demo-lock-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-amber-500/40 rounded-2xl p-5 w-full max-w-sm space-y-4 shadow-2xl relative text-center">
+      <button onclick="closeDemoLockModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white text-sm p-1"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="w-12 h-12 bg-amber-500/20 border border-amber-500/40 rounded-full flex items-center justify-center mx-auto text-amber-400">
+        <i class="fa-solid fa-bell text-xl"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-sm font-bold text-white">🚨 Private Escalation Alert (Demo Preview)</h3>
+        <p class="text-[11px] text-slate-300 leading-snug">
+          In your active counter standee setup, this alert with the customer's name and phone number is dispatched instantly to your WhatsApp so you can call them on the spot before a 1-star review goes public.
+        </p>
+      </div>
+
+      <div id="demo-lock-preview" class="bg-slate-950/80 border border-slate-800 rounded-xl p-2.5 text-left text-[11px] text-slate-300 space-y-1 font-mono">
+        <!-- Dynamically populated customer snippet -->
+      </div>
+
+      <button onclick="claimStandeesWhatsApp()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold py-3 px-4 rounded-xl shadow-lg shadow-amber-500/20 text-xs transition-all active:scale-[0.98]">
+        Claim Standees & Activate Live Alerts (₹2,999)
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Slide-Up Drawer: Switch Business (1-100) -->
@@ -1218,6 +1267,8 @@
     let selectedTags = [];
     let activeClient = null;
     let activeDrawerCategory = 'all';
+    let isDemoMode = true;
+    let isAdmin = false;
 
     // Parse URL Parameters & Initialize
     document.addEventListener("DOMContentLoaded", () => {
@@ -1228,6 +1279,16 @@
       const phoneParam = urlParams.get('phone');
       const typeParam = urlParams.get('type');
       const webhookParam = urlParams.get('webhook');
+      
+      isAdmin = urlParams.get('admin') === 'true';
+      isDemoMode = urlParams.get('active') !== 'true';
+
+      // Reveal Admin Controls if admin=true
+      if (isAdmin) {
+        document.querySelectorAll('.admin-control').forEach(el => {
+          el.classList.remove('hidden');
+        });
+      }
 
       let targetClient = null;
 
@@ -1264,6 +1325,7 @@
 
       selectClient(targetClient, false);
       renderDrawerList();
+      renderStars(5);
     });
 
     // Select Client Profile
@@ -1274,12 +1336,11 @@
       document.getElementById('biz-name').textContent = client.name;
       document.getElementById('biz-area').querySelector('span').textContent = client.area || 'Vadodara, Gujarat';
       document.getElementById('biz-initial').textContent = client.name.charAt(0);
-      document.title = `${client.name} - ReputeTap Review Portal`;
+      document.title = `${client.name} - ReputeTap Counter Standee Preview`;
 
-      // Update Badge
-      const badgeInfo = CATEGORY_BADGES[client.category] || { label: 'Verified Partner', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' };
+      // Update Header Badge: "⚡ COUNTER STANDEE PREVIEW • {NAME_UPPER}"
       const badgeElem = document.getElementById('biz-badge');
-      badgeElem.textContent = `${badgeInfo.label} • Tap to Review`;
+      badgeElem.textContent = `⚡ COUNTER STANDEE PREVIEW • ${client.name.toUpperCase()}`;
 
       // Populate Category Review Chips
       renderChips();
@@ -1297,9 +1358,11 @@
       document.getElementById('cfg-type').value = client.category;
       document.getElementById('cfg-webhook').value = client.webhook || '';
 
-      // Update URL without page reload if requested
+      // Update URL without page reload if requested (preserving admin flag if present)
       if (updateUrl && client.slug) {
-        const newUrl = `${window.location.pathname}?id=${encodeURIComponent(client.slug)}`;
+        let newUrl = `${window.location.pathname}?id=${encodeURIComponent(client.slug)}`;
+        if (isAdmin) newUrl += '&admin=true';
+        if (!isDemoMode) newUrl += '&active=true';
         window.history.pushState({ id: client.slug }, '', newUrl);
       }
     }
@@ -1357,19 +1420,30 @@
       document.getElementById('review-text').value = text;
     }
 
-    // Rate Experience Handler
-    function rateExperience(stars) {
-      currentRating = stars;
+    // Fixed Star Rating Visual Rendering (Fills stars 1..N with solid gold)
+    function renderStars(ratingCount) {
       const buttons = document.querySelectorAll('.star-btn');
-      
       buttons.forEach((btn, idx) => {
         const starNum = idx + 1;
-        if (starNum <= stars) {
+        if (starNum <= ratingCount) {
           btn.className = 'star-btn text-3xl text-amber-400 star-glow transition-transform active:scale-125 focus:outline-none p-1';
         } else {
-          btn.className = 'star-btn text-3xl text-slate-600 hover:text-amber-400 transition-transform active:scale-125 focus:outline-none p-1';
+          btn.className = 'star-btn text-3xl text-slate-600 transition-transform active:scale-125 focus:outline-none p-1';
         }
       });
+    }
+
+    function previewStars(hoverCount) {
+      renderStars(hoverCount);
+    }
+
+    function resetStarHover() {
+      renderStars(currentRating);
+    }
+
+    function rateExperience(stars) {
+      currentRating = stars;
+      renderStars(stars);
 
       const hint = document.getElementById('rating-hint');
       if (stars >= 4) {
@@ -1412,35 +1486,61 @@
     // Submit Private Feedback to Manager
     function submitPrivateFeedback() {
       const bizName = activeClient ? activeClient.name : 'Venue';
-      const phoneNum = activeClient ? activeClient.phone : '919876543210';
       const name = document.getElementById('cust-name').value.trim() || 'Valued Customer';
       const phone = document.getElementById('cust-phone').value.trim() || 'Not provided';
       const comment = document.getElementById('cust-comment').value.trim() || 'General feedback';
 
-      // Format WhatsApp escalation message
-      const text = `🚨 *ReputeTap Private Escalation*\n\n` +
-                   `*Business:* ${bizName}\n` +
-                   `*Rating:* ${currentRating} / 5 Stars\n` +
-                   `*Customer:* ${name}\n` +
-                   `*Contact:* ${phone}\n` +
-                   `*Message:* ${comment}`;
+      if (isDemoMode) {
+        // Show Demo Lock Modal Alert
+        const previewElem = document.getElementById('demo-lock-preview');
+        previewElem.innerHTML = `
+          <div><span class="text-slate-500">VENUE:</span> <span class="text-white">${bizName}</span></div>
+          <div><span class="text-slate-500">RATING:</span> <span class="text-amber-400">${currentRating} / 5 Stars</span></div>
+          <div><span class="text-slate-500">CUSTOMER:</span> <span class="text-white">${name} (${phone})</span></div>
+          <div><span class="text-slate-500">COMMENT:</span> <span class="text-slate-300">"${comment}"</span></div>
+        `;
+        document.getElementById('demo-lock-modal').classList.remove('hidden');
+      } else {
+        // Active mode: send WhatsApp directly to owner
+        const phoneNum = activeClient ? activeClient.phone : '919876543210';
+        const text = `🚨 *ReputeTap Private Escalation*\n\n` +
+                     `*Business:* ${bizName}\n` +
+                     `*Rating:* ${currentRating} / 5 Stars\n` +
+                     `*Customer:* ${name}\n` +
+                     `*Contact:* ${phone}\n` +
+                     `*Message:* ${comment}`;
 
-      const waUrl = `https://wa.me/${phoneNum.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
-      
-      // Show local confirmation
-      document.getElementById('feedback-form').classList.add('hidden');
-      document.getElementById('feedback-success').classList.remove('hidden');
+        const waUrl = `https://wa.me/${phoneNum.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
+        
+        document.getElementById('feedback-form').classList.add('hidden');
+        document.getElementById('feedback-success').classList.remove('hidden');
 
-      // Open WhatsApp after brief delay
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 500);
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+        }, 500);
+      }
+    }
+
+    function closeDemoLockModal() {
+      document.getElementById('demo-lock-modal').classList.add('hidden');
+    }
+
+    function claimStandeesWhatsApp() {
+      const bizName = activeClient ? activeClient.name : 'our venue';
+      const text = `Hi Mehul, I tested the ReputeTap counter demo for ${bizName}. I want to order 2 custom acrylic standees for our counter.`;
+      window.open(`https://wa.me/916359220791?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function orderStandeesWhatsApp() {
+      const bizName = activeClient ? activeClient.name : 'our venue';
+      const text = `Hi Mehul! I would like to order 2 custom branded ReputeTap counter standees for ${bizName}.`;
+      window.open(`https://wa.me/916359220791?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     // Copy Shareable Link to Clipboard
     function copyShareableLink() {
       const slug = activeClient ? activeClient.slug : '1';
-      const shareUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(slug)}`;
+      let shareUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(slug)}`;
       
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(shareUrl).then(() => {
@@ -1553,7 +1653,8 @@
       const type = document.getElementById('cfg-type').value;
       const webhook = document.getElementById('cfg-webhook').value.trim();
 
-      const newUrl = `${window.location.pathname}?biz=${encodeURIComponent(biz)}&placeid=${encodeURIComponent(placeid)}&phone=${encodeURIComponent(phone)}&type=${encodeURIComponent(type)}&webhook=${encodeURIComponent(webhook)}`;
+      let newUrl = `${window.location.pathname}?biz=${encodeURIComponent(biz)}&placeid=${encodeURIComponent(placeid)}&phone=${encodeURIComponent(phone)}&type=${encodeURIComponent(type)}&webhook=${encodeURIComponent(webhook)}`;
+      if (isAdmin) newUrl += '&admin=true';
       window.location.href = newUrl;
     }
   </script>
